@@ -1,0 +1,56 @@
+[import](common.lg)
+
+# SendActivity_rZJmMF()
+[Activity
+    Text = ${SendActivity_rZJmMF_text()}
+]
+
+# SendActivity_rZJmMF_text()
+- ```Let's check the weather.
+```
+# TextInput_Prompt_6e5qjk()
+[Activity
+    Text = ${TextInput_Prompt_6e5qjk_text()}
+]
+
+# TextInput_Prompt_6e5qjk_text()
+- ```What's your postal code?
+```
+# TextInput_InvalidPrompt_6e5qjk()
+[Activity
+    Text = ${TextInput_InvalidPrompt_6e5qjk_text()}
+]
+
+# TextInput_InvalidPrompt_6e5qjk_text()
+- ```Sorry, '${this.value}' is not valid. I'm looking for a 5 digit number as postal code. Please specify a 5 digit postal code in the format 12345. 
+```
+# TextInput_DefaultValueResponse_6e5qjk()
+[Activity
+    Text = ${TextInput_DefaultValueResponse_6e5qjk_text()}
+]
+
+# TextInput_DefaultValueResponse_6e5qjk_text()
+- 90210
+# SendActivity_lAae55()
+[Activity
+    Text = ${SendActivity_lAae55_text()}
+    Attachments = ${SendActivity_lAae55_attachment_vudohT()}
+]
+
+# SendActivity_lAae55_text()
+- ```The weather is ${dialog.fahrenheit}F or ${dialog.celsius}C and ${dialog.weather}.
+```
+# SendActivity_jULBNC()
+[Activity
+    Text = ${SendActivity_jULBNC_text()}
+]
+
+# SendActivity_jULBNC_text()
+- ```Something went wrong: ${dialog.api_response.content.message}.
+```
+# SendActivity_lAae55_attachment_vudohT()
+[ThumbnailCard
+   title = Weather in ${dialog.city} in ${dialog.country}
+   text =  It is "${dialog.weather}" in ${user.postalcode} and the temperature is ${dialog.fahrenheit}&deg;F or ${dialog.celsius}&deg;C. Have a nice day.
+   image = http://openweathermap.org/img/wn/${dialog.icon}@2x.png
+] 
